@@ -1,0 +1,273 @@
+/* =========================
+   CSS RESET & VARIABLES
+========================= */
+:root {
+    --bg: #ffffff;
+    --text: #1b1b1b;
+    --muted: #6b7280;
+    --primary: #0f5132; /* Nigerian green */
+    --card: #f9fafb;
+    --border: #e5e7eb;
+    --ad-bg: #f3f4f6;
+  }
+  
+  [data-theme="dark"] {
+    --bg: #0b0f14;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --primary: #22c55e;
+    --card: #111827;
+    --border: #1f2933;
+    --ad-bg: #0f172a;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  
+  /* =========================
+     ACCESSIBILITY
+  ========================= */
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+  }
+  .skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    background: var(--primary);
+    color: #fff;
+    padding: 0.5rem;
+    z-index: 1000;
+  }
+  
+  /* =========================
+     HEADER
+  ========================= */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .logo {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .controls button {
+    background: none;
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* =========================
+     LAYOUT
+  ========================= */
+  .container {
+    max-width: 720px;
+    margin: auto;
+    padding: 1rem;
+  }
+  
+  .intro {
+    margin-bottom: 1.5rem;
+  }
+  
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* =========================
+     FORM
+  ========================= */
+  .field {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+  }
+  
+  .expenses input {
+    margin-top: 0.5rem;
+  }
+  
+  .actions {
+    text-align: right;
+  }
+  
+  button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* =========================
+     RESULTS
+  ========================= */
+  .results p {
+    font-size: 1.1rem;
+  }
+  
+  /* =========================
+     ADS (NON-INTRUSIVE)
+  ========================= */
+  .ad-slot {
+    background: var(--ad-bg);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  
+  /* =========================
+     CONTENT & FAQ
+  ========================= */
+  .content ul {
+    padding-left: 1.2rem;
+  }
+  
+  .faq details {
+    margin-bottom: 0.75rem;
+  }
+  
+  .faq summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  /* =========================
+     FOOTER
+  ========================= */
+  .site-footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* =========================
+   DYNAMIC EXPENSES POLISH
+========================= */
+.expense-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .expense-row input[type="text"] {
+    font-size: 0.9rem;
+  }
+  
+  .expense-row button {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.6rem;
+  }
+  
+  #addExpense {
+    margin-top: 0.75rem;
+    background: none;
+    color: var(--primary);
+    border: 1px dashed var(--border);
+    width: 100%;
+  }
+  
+  /* Custom state input */
+  #customState {
+    margin-top: 0.5rem;
+  }
+
+  
+  .result-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  
+  .result-actions button {
+    flex: 1;
+    font-size: 0.9rem;
+  }
+
+  
+  /* =========================
+   PRINT STYLES
+========================= */
+@media print {
+    body {
+      background: #fff;
+      color: #000;
+    }
+  
+    .site-header,
+    .ad-slot,
+    .controls,
+    #addExpense,
+    .result-actions button:not(#printResults) {
+      display: none;
+    }
+  
+    .card {
+      border: none;
+      padding: 0;
+    }
+  
+    footer {
+      display: none;
+    }
+  }
+
+.positive { color: #198754; }
+.negative { color: #dc3545; }

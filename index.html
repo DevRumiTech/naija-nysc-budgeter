@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Core -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO -->
+  <title>NaijaNYSCBudgeter | NYSC Allowance & Budget Calculator for Corpers</title>
+  <meta name="description" content="NaijaNYSCBudgeter helps Nigerian NYSC corps members calculate allowance, expenses, and savings for their service year." />
+  <meta name="keywords" content="NYSC allowance calculator, Naija NYSC budget, corper savings, NYSC money management" />
+  <meta name="author" content="NaijaNYSCBudgeter" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="NaijaNYSCBudgeter" />
+  <meta property="og:description" content="Smart NYSC allowance & budget calculator built for Nigerian corps members." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/og-image.png" />
+
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#0f5132" />
+
+  <!-- Icons (PNG only) -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preload" as="image" href="assets/images/logo.png" />
+
+</head>
+
+<body>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/images/logo.png" alt="NaijaNYSCBudgeter Logo" class="logo" />
+      <div>
+        <h1>NaijaNYSCBudgeter</h1>
+        <p>NYSC Allowance & Budget Calculator</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- AD SLOT: TOP -->
+    <section class="ad-slot ad-top" aria-label="Advertisement">
+      <span>Ad space</span>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro">
+      <h2>Plan your NYSC money better</h2>
+      <p>
+        NaijaNYSCBudgeter helps Nigerian corps members estimate monthly balance
+        and total savings throughout the NYSC service year.
+      </p>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section id="calculator" class="card">
+      <h3>Allowance & Budget Calculator</h3>
+
+      <form id="budgetForm">
+
+        <!-- Allowance -->
+        <div class="field">
+          <label for="allowance">Monthly NYSC Allowance (₦)</label>
+          <input type="number" id="allowance" placeholder="e.g. 33000" required />
+        </div>
+
+        <!-- State -->
+        <div class="field">
+          <label for="state">State of Service</label>
+          <select id="state">
+            <option value="">Select state</option>
+          </select>
+          <input
+            type="text"
+            id="customState"
+            placeholder="Add custom state (optional)"
+          />
+          <button type="button" id="removeState">Remove selected state</button>
+        </div>
+
+        <!-- Dynamic Expenses -->
+        <fieldset class="expenses">
+          <legend>Monthly Expenses (₦)</legend>
+
+          <div id="expenseList"></div>
+
+          <button type="button" id="addExpense">+ Add Expense</button>
+        </fieldset>
+
+        <div class="actions">
+          <button type="reset" id="resetBtn">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="card results">
+      <h3>Your Results</h3>
+      <p>Monthly Balance: <strong id="monthlyBalance">₦0</strong></p>
+      <p>Estimated Yearly Savings: <strong id="yearlySavings">₦0</strong></p>
+      
+      <div class="result-actions">
+        <button type="button" id="copyResults">Copy Results</button>
+        <button type="button" id="printResults">Print</button>
+      </div>
+      <p class="note">Estimates only. Actual NYSC payments and expenses may vary.</p>
+      
+    </section>
+
+    <!-- AD SLOT: MID -->
+    <section class="ad-slot ad-mid" aria-label="Advertisement">
+      <span>Ad space</span>
+    </section>
+
+    <!-- EDUCATIONAL CONTENT -->
+    <section class="content">
+      <h3>How NYSC Allowance Works</h3>
+      <p>
+        NYSC allowance is paid monthly by the Federal Government of Nigeria.
+        Some states provide additional stipends depending on location.
+      </p>
+
+      <h3>How Corps Members Can Save Money</h3>
+      <ul>
+        <li>Track all expenses clearly</li>
+        <li>Add custom categories like data, savings, tithe</li>
+        <li>Reduce avoidable spending</li>
+        <li>Save surplus consistently</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <h3>Frequently Asked Questions (FAQ)</h3>
+
+      <details>
+        <summary>What is NaijaNYSCBudgeter?</summary>
+        <p>
+          A free budgeting tool designed for Nigerian NYSC corps members to
+          estimate allowance, expenses, and potential savings.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is this tool affiliated with NYSC?</summary>
+        <p>
+          No. This tool is independent and not officially affiliated with NYSC.
+        </p>
+      </details>
+
+      <details>
+        <summary>How accurate are the results?</summary>
+        <p>
+          Results are estimates based on your inputs. Actual figures may vary.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I add my own expenses?</summary>
+        <p>
+          Yes. You can add, rename, or remove any expense category you want.
+        </p>
+      </details>
+
+      <details>
+        <summary>What if my state is not listed?</summary>
+        <p>
+          You can manually add your state using the custom state input.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do you collect my data?</summary>
+        <p>
+          No. All calculations run locally in your browser. No data is stored.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is the app free?</summary>
+        <p>
+          Yes. Ads may appear to support maintenance and improvements.
+        </p>
+      </details>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <section class="ad-slot ad-footer" aria-label="Advertisement">
+      <span>Ad space</span>
+    </section>
+    <p>© 2026 NaijaNYSCBudgeter • Estimates only • Built for Nigerian Corpers</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/js/theme.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
